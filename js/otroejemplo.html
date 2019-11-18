@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-witdth, inicialial-">  -->
+    <meta http-equiv="x-UA-Compatible" content="le=edge">
+
+
+    <link th:href="@{/recursos/datatables/dataTables.bootstrap4.css}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .modal-header,
+        h4,
+        .close {
+            background-color: #5cb85c;
+            color: white !important;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="col-sm-6" style="margin-bottom: 10px;">
+
+        <div class="container">
+            <h2>Modal</h2>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-lg" id="myBtn" data-toggle="#myModal"> nuevo </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header" style="padding: 35px 50px;">
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4>
+                                nuevo
+                            </h4>
+                        </div>
+                        <div class="modal-body" style="padding: 40px 50px;">
+
+                            <div class="form-group">
+                                <label for="usrname"><span class="glyphicon glyphicon-user"></span> id</label>
+                                <input type="number" class="form-control" id="id" placeholder="id">
+                            </div>
+                            <div class="form-group">
+                                <label for="usrname"><span class="glyphicon glyphicon-user"></span> nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>direccion</label>
+                                <input type="text" class="form-control" id="direccion" placeholder="direccion">
+                            </div>
+                            <div class="form-group">
+                                <label for="usrname"><span class="glyphicon glyphicon-user"></span> telefono</label>
+                                <input type="text" class="form-control" id="telefono" placeholder="telefono">
+                            </div>
+                            <div style="text-align: center;">
+                                <button type="submit" class="btn btn-primary" id="guardar" data-dismiss="modal">
+                                    guardar</button>
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn btn-primary " data-dismiss="modal" id="actualizar">
+                                actualizar</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center col-10 offset-1">
+        <h1 style="margin-bottom: 20px;">Lista</h1>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered" id="tabla">
+            <thead>
+                <tr class="success">
+                    <th class="active">id</th>
+                    <th class="success">nombre</th>
+                    <th class="warning">direccion</th>
+                    <th class="danger"> telefono</th>
+                    <th class="warning">operaciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+            </tbody>
+        </table>
+    </div>
+
+    <!--<tr class="active">...</tr>
+      <tr class="success">...</tr>
+      <tr class="warning">...</tr>
+      <tr class="danger">...</tr>-->
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myEliminar" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Eliminar Empleado</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>¿Esta seguro de eliminar a este empleado?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default ml-2" data-dismiss="modal" value="Cancelar">
+                    <input type="submit" class="btn btn-danger" value="Eliminar">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--alert(id+""+nombre""+direccion""+telefono""+)-->
+
+
+    <!--para el boton de modal-->
+    <script>
+        $(document).ready(function () {
+            $("#myBtn").click(function () {
+                $("#myModal").modal();
+            });
+
+            $("#guardar").click(function () {
+                var id = $("#id").val();
+                var nombre = $("#nombre").val();
+                var telefono = $("#telefono").val();
+                var direccion = $("#direccion").val();
+
+                $("#tabla").append(
+                    '' + '<tr>' + '<td>' + id + '</td>' + '<td>' + nombre + '</td>' + '<td>' + direccion + '</td>' + '<td>' + telefono + '</td>' +
+                    '<td>' + '<button type="button" class="btn btn-primary" style="margin-left: 50px" data-toggle="modal" data-target="#myModal">' + 'editar' + '</button>' +
+                    '<button type="submit" class="btn btn-danger" style="margin-left: 50px" id="borrar" data-toggle="modal" data-target="#myEliminar">' + 'eliminar' + '</button>'
+                    + '</td>'
+                    + '</tr>'
+                );
+
+                $("#borrar").click(function () {
+                    $("#mymodal").removeAttr("id");
+
+
+                });
+            });
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

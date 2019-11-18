@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    <!--<meta name="viewport" content="width=device-witdth, inicialial-">  -->
+        <meta http-equiv="x-UA-Compatible" content="le=edge">
+        <title> ejemplo de js</title>
+    </head>
+    <body>
+            n1: <input type="number" id="num1"><br>
+            n2: <input type="number" id="num2"><br>
+          <button id="sumar"> sumar</button>                  
+<!--gijhg-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>         
+                   //cargando el documento
+                  $(document).ready(function(){
+                      // creando un click para el botton
+                      $("#Sumar").click(function(){
+                        let n1=parseFloat($(num1).val());                   
+                    let n2=parseFloat($(num2).val());
+                          alert("total:"+(n1+n2));
+                      });
+                  });
+        
+
+
+
+       
+        </script>
+
+    </body>
+</html>

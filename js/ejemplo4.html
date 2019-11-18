@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<div class="container">
+ <h4>modal</h4>
+
+  <!-- Button to Open the Modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    nuevo
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+                <h2 class="modal-title"></h2>id</h2>
+                <input type="number" class="form-control" id="id" placeholder="id"><br>
+          <h2 class="modal-title"></h2>nombre</h2>
+          <input type="number" class="form-control" id="nombre" placeholder="nombre"><br>
+         <h2 class="modal-title"></h2>direccion</h2>
+          <input type="number" class="form-control" id="direccion" placeholder="direccion"><br>
+          <h2 class="modal-title"></h2>telefono</h2>
+          <input type="number" class="form-control" id="telefono" placeholder="telefono">
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="guardar">guardar</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+<table  class="table" >
+            <thead>
+                <tr  class="success">
+                    <th class="active">id</th>
+                    <th class="success">nombre</th>
+                    <th class="warning">direccion</th>
+                    <th class="danger"> telefono</th>
+                    <th class="warning">operaciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla">
+            </tbody>
+        </table>
+        <script>
+        
+        $("#guardar").click(function (){
+               var id=$("#id").val(null);
+               var nombre=$("#nombre").val(null);
+               var telefono=$("#telefono").val(null);
+               var direccion=$("#direccion").val(null);
+               
+               $("#tabla").append(
+                    ''+'<tr>'+'<td>'+id+'</td>'+'<td>'+nombre+'</td>'+'<td>'+telefono+'</td>'+'<td>'+direccion+'</td>'+
+                    '<td>'+'<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal">'+ 'editar'+'</button>'+
+                        '<button type="submit" class="btn btn-danger" id="borrar" data-toggle="modal" data-target="#myEliminar">'+ 'eliminar'+'</button>'
+                        
+                    +'</tr>'
+                    );
+                });
+       
+      function reset() {
+        var id=$("#id").val(null);
+               var nombre=$("#nombre").val(null);
+               var telefono=$("#telefono").val(null);
+               var direccion=$("#direccion").val(null);
+      }
+
+        </script>
+</body>
+</html>

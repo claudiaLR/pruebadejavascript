@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-witdth, inicialial-">
+        <meta http-equiv="x-UA-Compatible" content="le=edge">
+        <title> ejemplo de js</title>
+    </head>
+    <body>
+
+
+        <h1 id="texto">hola</h1>
+        <input id="valor" type="text">
+        <button id="btnEnviar">enviar</button>
+        <!--j-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+//js normal
+            document.getElementById("texto").append("estudiantes");
+
+            // carga completa del docuemento
+            $(document).ready(function(){
+                let valor=$("#valor").val();//obtenemos el valor
+                alert("estoy fusionando")
+
+                //creando un evento clikc para el boton
+                $("#btnEnviar").click(function(){
+                    enviar(valor.val());
+                    });
+            });
+
+
+//funcion para el click
+function Enviar(p1) {
+    alert("valor: "+p1);
+    
+}
+
+
+
+
+
+
+
+        </script>
+    </body>
+    </html>
